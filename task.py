@@ -85,6 +85,7 @@ def main():
     ap.add_argument("--epochs", default=20, type=int)
     ap.add_argument("--num_train_images", default=2000, type=int)
     ap.add_argument("--num_validation_images", default=1000, type=int)
+    ap.add_argument("--job-dir", default="./", type=str)
     args = ap.parse_args()
     model = vgg8(args)
 
@@ -98,6 +99,8 @@ def main():
                         validation_steps=args.num_validation_images//args.batch_size,
                         epochs=args.epochs,
                         verbose=1)
+                        
+    model.save(args.job_dir)
 
 if __name__ == "__main__":
     main()
