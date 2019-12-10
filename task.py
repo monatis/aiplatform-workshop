@@ -89,7 +89,7 @@ def main():
     args = ap.parse_args()
     model = vgg8(args)
 
-    model.compile(loss="categorical_crossentropy", optimizer='adam')
+    model.compile(loss="categorical_crossentropy", optimizer='adam', metrics=['accuracy'])
     train_images = generate_train_generator(args)
     validation_images = generate_validation_generator(args)
 
@@ -100,7 +100,7 @@ def main():
                         epochs=args.epochs,
                         verbose=1)
                         
-    model.save(args.job_dir)
+    model.save(args.job_dir + '/model.h5' if args.job_dir startswith('gs://') else 'model.h5')
 
 if __name__ == "__main__":
     main()
