@@ -100,7 +100,7 @@ def main():
                         epochs=args.epochs,
                         verbose=1)
                         
-    model.save(args.job_dir + '/model.h5' if args.job_dir startswith('gs://') else 'model.h5')
+    model.save(args.job_dir + '/model.h5' if args.job_dir.startswith('gs://') else 'model.h5')
 
 if __name__ == "__main__":
     main()
