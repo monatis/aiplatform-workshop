@@ -2,7 +2,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense, Conv2D, BatchNormalization, Activation
 from tensorflow.keras.layers import Input, MaxPooling2D, Dropout, Flatten
 from tensorflow.keras import regularizers
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import tensorflow as tf
 import argparse
 from . import utils
 
