@@ -63,7 +63,11 @@ def main():
                         epochs=args["epochs"],
                         verbose=1)
                         
-    model.save(args["job_dir"] + '/model.h5' if args["job_dir"].startswith('gs://') else 'model.h5')
-
+    model.save('model.h5')
+    if args["job_dir"].startswith("gs://"):
+        with open('model.h5', "rb") as local_file:
+            with tf.gfile.open(args["job_dir"] + "/model.h5", "wb") as gcs_file:
+                gcs_file.write(local_file.read())
+        
 if __name__ == "__main__":
     main()
