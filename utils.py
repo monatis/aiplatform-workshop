@@ -5,7 +5,7 @@ import os
  # Utility functions to apply data augmentations.
  # some of the functions directly borrowed from https://www.wouterbulten.nl/blog/tech/data-augmentation-using-tensorflow-data-dataset/
 
-def flip(x: tf.Tensor) -> tf.Tensor:
+def flip(x):
     """Flip augmentation
 
     Args:
@@ -19,7 +19,7 @@ def flip(x: tf.Tensor) -> tf.Tensor:
 
     return x
 
-def color(x: tf.Tensor) -> tf.Tensor:
+def color(x):
     """Color augmentation
 
     Args:
@@ -34,7 +34,7 @@ def color(x: tf.Tensor) -> tf.Tensor:
     x = tf.image.random_contrast(x, 0.7, 1.3)
     return x
 
-def rotate(x: tf.Tensor) -> tf.Tensor:
+def rotate(x):
     """Rotation augmentation
 
     Args:
@@ -46,7 +46,7 @@ def rotate(x: tf.Tensor) -> tf.Tensor:
 
     return tf.image.rot90(x, tf.random_uniform(shape=[], minval=0, maxval=4, dtype=tf.int32))
 
-def zoom(x: tf.Tensor) -> tf.Tensor:
+def zoom(x):
     """Zoom augmentation
 
     Args:
