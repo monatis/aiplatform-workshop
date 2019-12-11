@@ -4,7 +4,8 @@ from tensorflow.keras.layers import Input, MaxPooling2D, Dropout, Flatten
 from tensorflow.keras import regularizers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import argparse
-import utils
+from . import utils
+
 weight_decay = 1e-4
 
 
